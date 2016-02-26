@@ -43,9 +43,6 @@ class HotelTest < MiniTest::Test
     assert_equal(1000, result)
   end
 
-# input_hash[some_key] # => value for that key
-# input_hash.key(some_value) # => key for that value
-
   def test_hotel_has_rooms_array
     result = @hotel.rooms_array
     assert_equal([101, 102, 103], result)
@@ -69,6 +66,8 @@ class HotelTest < MiniTest::Test
     result = @hotel.find_double_room
     assert_equal(103, result)
   end
+
+
 
 
 end

@@ -28,4 +28,14 @@ class RoomTest < MiniTest::Test
     assert_equal(1, result)
   end
 
+  def test_update_room_occupancy
+    result = @test_room.update_room_occupancy(true)
+    assert_equal( true, @test_room.occupied )
+  end
+
+  def test_update_room_guest
+    resullt = @test_room.update_room_guest( "Bill" )
+    assert_equal( "Bill", @test_room.guest )
+  end
+
 end

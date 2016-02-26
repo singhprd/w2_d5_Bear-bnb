@@ -7,7 +7,6 @@ class Guest
     @money = input_hash[:money]
     @beds_wanted = input_hash[:beds_wanted]
   end
-    
 
 
 end

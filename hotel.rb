@@ -22,7 +22,7 @@ class Hotel
         return key
       end
     end
-    return "No Single Rooms Found"
+    return false
   end
 
   def find_double_room
@@ -31,7 +31,7 @@ class Hotel
         return key
       end
     end
-    return "No Double Rooms Found"
+    return false
   end
 
 
