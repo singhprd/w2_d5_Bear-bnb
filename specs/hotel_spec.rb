@@ -16,8 +16,8 @@ class HotelTest < MiniTest::Test
       }),
 
       102 => Room.new({
-      :guest => nil,        
-      :occupied => false,
+      :guest => "Dave",        
+      :occupied => true,
       :rate => 20,
       :num_beds => 1
       }),
@@ -57,17 +57,39 @@ class HotelTest < MiniTest::Test
     assert_equal("Balmoral", result)
   end
 
-  def test_find_single_room
-    result = @hotel.find_single_room
+  def test_find_single_free_room
+    result = @hotel.find_single_free_room
     assert_equal(101, result)  
   end
 
-  def test_find_double_room
-    result = @hotel.find_double_room
+  def test_find_double_free_room
+    result = @hotel.find_double_free_room
     assert_equal(103, result)
   end
 
+  def test_occupied_rooms
+    result = @hotel.occupied_rooms
+    assert_equal( [102], result )
+  end
 
+  def test_unoccupied_rooms
+    result = @hotel.unoccupied_rooms
+    assert_equal( [101, 103], result )
+  end
 
+  def test_return_guest
+    result = @hotel.return_guest(102)
+    assert_equal( "Dave", result )
+  end
+
+  def test_add_to_account
+    result = @hotel.add_to_account(10)
+    assert_equal(1010, result)
+  end
+
+  def test_bill_all_occupied_rooms
+    @hotel.bill_all_occupied_rooms
+    assert_equal(1020, @hotel.account)
+  end
 
 end

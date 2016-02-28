@@ -11,10 +11,11 @@ class Booking
   end
 
   def check_in( guest, hotel )
+    check_in_room = false
     if guest.beds_wanted == 1
-      check_in_room = hotel.find_single_room
+      check_in_room = hotel.find_single_free_room
     elsif guest.beds_wanted == 2
-      check_in_room = hotel.find_double_room
+      check_in_room = hotel.find_double_free_room
     end
 
     # no rooms
@@ -29,16 +30,12 @@ class Booking
 
   end
 
-  def check_out( guest, hotel, room_number )
-    if guest.name == hotel.rooms_hash[102].guest
-
+  def check_out( hotel, room_number )
     hotel.rooms_hash[room_number].update_room_occupancy(false)
     hotel.rooms_hash[room_number].update_room_guest(nil)
       return "Checked out"
-    else [guest.name, hotel.rooms_hash[102].guest]
-    end
-
   end
+
 # input_hash[some_key] # => value for that key
 # input_hash.key(some_value) # => key for that value
 end

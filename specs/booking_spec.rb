@@ -32,7 +32,7 @@ class BookingTest < MiniTest::Test
 
     @hotel = Hotel.new(rooms_hash, 1000, "Balmoral")
     @guest_to_check_in = Guest.new({name: "Bob", money: 500, beds_wanted: 1})
-    @guest_to_check_out = Guest.new({name: "Jane", money: 500, beds_wanted: 2})
+
     @booking = Booking.new
   end
 
@@ -48,7 +48,7 @@ class BookingTest < MiniTest::Test
   end
 
   def test_check_out
-    result = @booking.check_out( @guest_to_check_out, @hotel, 102 )
+    result = @booking.check_out( @hotel, 102 )
     assert_equal("Checked out", result)
 
     updated_room_guest = @hotel.rooms_hash[102].guest
@@ -57,5 +57,6 @@ class BookingTest < MiniTest::Test
     updated_room_occupancy = @hotel.rooms_hash[102].occupied
     assert_equal(false, updated_room_occupancy)    
   end
+
 
 end
