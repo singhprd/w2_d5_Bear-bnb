@@ -8,3 +8,5 @@ Run
 to start the hotel booking simulator.
 
 Money doesnt do anything at the moment.
+
+Development driven by Tests!
