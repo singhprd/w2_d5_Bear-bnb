@@ -58,7 +58,9 @@ class Interface
   end
 
   def start
+    system "clear"
     puts "Welcome to BearBnB"
+    gets.chomp
     user_action = nil
     until user_action == "exit"
       system "clear"
